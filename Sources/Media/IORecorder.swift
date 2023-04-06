@@ -87,12 +87,13 @@ public class IORecorder {
             
             // fix Local record audio desynchronization on camera switch
 //            if mediaType == .audio && self.audioPresentationTime != .zero {
-//                if  input.isReadyForMoreMediaData, sampleBuffer.isValid, let sampleBuffer = self.makeAudioCMSampleBuffer(sampleBuffer) {
+//                if  input.isReadyForMoreMediaData, let sampleBuffer = self.makeAudioCMSampleBuffer(sampleBuffer) {
 //                                    input.append(sampleBuffer)
 //                                    self.audioPresentationTime = CMTimeAdd(self.audioPresentationTime, sampleBuffer.duration)
+//                    return
 //                                }
 //            }
-            
+//
             if input.isReadyForMoreMediaData {
                 switch mediaType {
                 case .audio:

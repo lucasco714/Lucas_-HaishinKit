@@ -265,11 +265,8 @@ extension CVPixelBuffer {
     */
     public class func createPixelBuffer(width: Int, height: Int, pixelFormat: OSType) -> CVPixelBuffer? {
       let attributes = metalCompatiblityAttributes() as CFDictionary
-        
-        let outputOptions = [kCVPixelBufferOpenGLESCompatibilityKey as String: NSNumber(value: true),
-                                     kCVPixelBufferIOSurfacePropertiesKey as String: [:]] as [String : Any]
       var pixelBuffer: CVPixelBuffer?
-      let status = CVPixelBufferCreate(kCFAllocatorDefault, width, height, pixelFormat, outputOptions as CFDictionary?, &pixelBuffer)
+      let status = CVPixelBufferCreate(kCFAllocatorDefault, width, height, pixelFormat, attributes, &pixelBuffer)
       if status != kCVReturnSuccess {
         print("Error: could not create pixel buffer", status)
         return nil
